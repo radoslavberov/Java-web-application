@@ -18,7 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_competitors")
+@Table(name = "competitors")
 public class Driver {
 
 @Id

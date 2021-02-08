@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+   
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Index</title>
+    </head>
+    <body>
+        <div>
+            <h2><a href="new_add">Add driver to Transfer List</a></h2>
+            <br />
+            
+            <table border="1">
+                <thead>
+                    <tr>
+                        <td>Driver Id</td>
+                        <td>Driver Name</td>
+                        <td>Driver Name</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                </thead>
+                <tbody>                   
+                     <th:block th:each="drivers : ${getAllDrivers}">
+                        <tr>
+                            <td th:text="${drivers.id}">System ID</td>
+                            <td th:text="${drivers.firstname}">Name</td>
+                            <td th:text="${drivers.lastname}">Last Name</td>
+                      
+                            <td><a th:href="@{'/edit/' + ${drivers.id}}">Edit Driver</a></td>
+                            <td><a th:href="@{'/delete/' + ${drivers.id}}">Delete from Transfer List</a></td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <style>
+            body {
+                    background-image: url('https://www.formula1.com/content/dam/fom-website/manual/Misc/2020CalendarAnnouncement/GettyImages-1180733959.jpg');
+                  }
+        </style>
+        <title>Edit Driver</title>
+        <meta charset="ISO-8859-1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div style="text-align: center">
+            <h1 style="text-align: center; color: white">Welcome!</h1>
+
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+            <h1 style="text-align: center; color: white">Edit details about the driver</h1>
+            <h3><a href="/">Back to the list</a></h3>
+        </div>
+        <div>
+            <br />
+            
+            <div layout:fragment="content" class="container mySpace">
+                <div class="card">
+                    <div class="card-body">
+            <form th:object="${driver}" th:action="@{/save_driver}" method="post">
+            
+                 <table class="table table-hover" style="background-color: whitesmoke;">
+                    <tr>
+                        <td>System ID</td>
+                        <td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" th:field="*{firstname}" required="required" pattern="[A-Za-z]{1,20}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" th:field="*{lastname}" required="required" pattern="[A-Za-z]{1,20}" /></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit">Update</button></td>
+                    </tr>
+                </table>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>
